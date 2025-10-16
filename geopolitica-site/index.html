@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geopolítica Explicada</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ======= ESTILO GERAL ======= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #f5f5f5;
+      background-color: #0d0d0d;
+    }
+
+    h1, h2, h3 {
+      color: #ff3333;
+    }
+
+    a {
+      color: #ff3333;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    /* ======= NAVBAR ======= */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #000;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      border-bottom: 2px solid #ff3333;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      color: #ff3333;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff3333;
+    }
+
+    /* ======= SEÇÕES ======= */
+    section {
+      padding: 100px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section:nth-child(even) {
+      background-color: #1a1a1a;
+    }
+
+    .intro {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: white;
+      text-align: center;
+      padding: 150px 20px;
+    }
+
+    .intro h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #111;
+      padding: 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(255, 51, 51, 0.2);
+      border: 1px solid #222;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(255, 51, 51, 0.4);
+    }
+
+    footer {
+      background: #000;
+      color: #bbb;
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+      border-top: 2px solid #ff3333;
+    }
+
+    /* ======= MENU MOBILE ======= */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #ff3333;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+        border-left: 2px solid #ff3333;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Geopolítica Explicada</h1>
+    <div class="menu-toggle">☰</div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#blocos">Blocos</a></li>
+        <li><a href="#conflitos">Conflitos</a></li>
+        <li><a href="#energia">Energia</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="intro" id="inicio">
+    <h2>Entenda o Mundo Atual</h2>
+    <p>A geopolítica define o equilíbrio de poder e as alianças que moldam o planeta. Explore os principais temas do século XXI.</p>
+  </section>
+
+  <section id="blocos">
+    <h2>Blocos e Alianças</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>OTAN</h3>
+        <p>Aliança militar criada em 1949, liderada pelos EUA, com foco na defesa coletiva de seus membros.</p>
+      </div>
+      <div class="card">
+        <h3>BRICS</h3>
+        <p>Grupo de cooperação formado por Brasil, Rússia, Índia, China e África do Sul, buscando equilíbrio global.</p>
+      </div>
+      <div class="card">
+        <h3>União Europeia</h3>
+        <p>Bloco econômico e político que promove integração entre países da Europa, com moeda e políticas comuns.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="conflitos">
+    <h2>Conflitos Atuais</h2>
+    <p>Guerras e tensões geopolíticas — como Rússia x Ucrânia, disputas no Oriente Médio e rivalidades entre EUA e China — redefinem as dinâmicas de poder global.</p>
+  </section>
+
+  <section id="energia">
+    <h2>Energia e Recursos</h2>
+    <p>O domínio de recursos estratégicos como petróleo, gás e lítio determina a influência e as decisões de potências mundiais.</p>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p>Site criado por <strong>Seu Nome</strong> — veja mais em:</p>
+    <p>
+      <a href="https://github.com/seuusuario" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/seuusuario" target="_blank">LinkedIn</a>
+    </p>
+  </section>
+
+  <footer>
+    © 2025 Geopolítica Explicada — Desenvolvido por Você
+  </footer>
+
+  <script>
+    // Menu Mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('nav ul');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
+
+
