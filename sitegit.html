@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geopolítica: Análise Estrutural (Com Rage Against the Machine)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* 1. VARIÁVEIS (Mantidas) */
+    :root {
+      --cor-fundo: #0a0a0a; 
+      --cor-secundaria: #141414;
+      --cor-destaque: #00ff88; /* Verde Neon */
+      --cor-texto: #e0e0e0;
+      --cor-texto-claro: #999;
+      --cor-card-fundo: #1c1c1c;
+      --padding-secao: 100px 20px; 
+      --transicao-suave: 0.3s ease;
+    }
+
+    /* 2. RESET E BASE */
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--cor-texto);
+      background-color: var(--cor-fundo);
+      transition: background-color var(--transicao-suave);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2 {
+      color: var(--cor-destaque);
+    }
+    
+    /* Estilo para elementos editáveis */
+    [contenteditable="true"] {
+        outline: none; 
+        cursor: text;
+    }
+    
+    [contenteditable="true"]:focus {
+        box-shadow: 0 0 10px var(--cor-destaque);
+        border-color: var(--cor-destaque) !important;
+        background-color: #2a2a2a; 
+    }
+
+    a {
+      color: var(--cor-destaque);
+      text-decoration: none;
+      transition: color var(--transicao-suave);
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+
+    /* 3. SCROLL UP BUTTON */
+    .scroll-up {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--cor-destaque);
+      color: var(--cor-fundo); 
+      border-radius: 4px; 
+      display: none;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.9);
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.2s ease-out;
+    }
+
+    .scroll-up:hover {
+      background-color: #00e676;
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 1);
+    }
+
+    /* 4. NAVBAR (Mantido) */
+    header {
+      position: sticky; 
+      top: 0;
+      width: 100%;
+      background: #000000cc; 
+      backdrop-filter: blur(5px); 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 1.5rem;
+      z-index: 1000;
+      border-bottom: 3px solid var(--cor-destaque);
+      box-shadow: 0 3px 10px rgba(0, 255, 136, 0.3);
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--cor-texto);
+      font-weight: 500;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      color: var(--cor-destaque);
+      border-bottom: 2px solid var(--cor-destaque);
+    }
+
+    /* 5. SEÇÕES GERAIS (Mantido) */
+    section {
+      padding: var(--padding-secao); 
+      max-width: 1100px; 
+      margin: 0 auto;
+    }
+
+    section:nth-child(odd) { 
+      background-color: var(--cor-secundaria);
+    }
+
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid var(--cor-destaque);
+        display: inline-block;
+    }
+    
+    /* 6. INTRO BANNER - COM PLAYER OTIMIZADO */
+    .intro {
+      background: url('https://images.unsplash.com/photo-1558979678-2011b20e0b5b?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      position: relative;
+      color: white;
+      text-align: center;
+      padding: 100px 20px 180px; 
+      overflow: hidden;
+    }
+    
+    .intro::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8); 
+        z-index: 1;
+    }
+    
+    .intro h2, .intro p, .player-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .intro h2 {
+      font-size: 3.8rem; 
+      margin-bottom: 1rem;
+      text-shadow: 0 0 12px var(--cor-destaque); 
+      color: #fff; 
+      letter-spacing: 0.5px;
+    }
+    
+    .intro p {
+        font-size: 1.05rem;
+        font-weight: 300;
+        max-width: 650px;
+        margin: 0 auto 2rem;
+    }
+
+    /* Estilização do container do Player */
+    .player-container {
+        margin-top: 2rem;
+        max-width: 400px; 
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid var(--cor-destaque);
+        box-shadow: 0 0 15px var(--cor-destaque);
+        border-radius: 4px;
+        overflow: hidden; 
+    }
+
+    /* 7. CARDS - EDITÁVEL (Mantido) */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); 
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--cor-card-fundo);
+      padding: 1.3rem;
+      border-radius: 0; 
+      border: 2px solid #333; 
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+    }
+
+    .card h3[contenteditable="true"] {
+        border-left: 4px solid var(--cor-destaque);
+        padding-left: 8px;
+    }
+    
+    .card h3[contenteditable="true"]:focus {
+        border-color: var(--cor-destaque) !important;
+    }
+    
+    .card h3 {
+        margin-bottom: 0.6rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    
+    .card p[contenteditable="true"] {
+        font-size: 0.9rem;
+        color: var(--cor-texto-claro); 
+    }
+
+    .card:hover {
+      transform: translateY(-4px) scale(1.01); 
+      box-shadow: 0 0 25px var(--cor-destaque); 
+      background: #242424;
+      border-color: #3d3d3d;
+    }
+    
+    /* 8. LISTAS (Mantido) */
+    #conflitos ul, #energia ul {
+        margin: 1.5rem 0 1.5rem 20px; 
+        padding-left: 0;
+    }
+    
+    #conflitos li, #energia li {
+        margin-bottom: 0.7rem;
+    }
+
+
+    /* 9. FOOTER (Mantido) */
+    footer {
+      background: #000;
+      color: var(--cor-texto-claro);
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.85rem;
+      border-top: 4px solid var(--cor-destaque);
+    }
+
+    /* 10. OTIMIZAÇÃO MOBILE */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 1.8rem;
+      color: var(--cor-destaque);
+      background: none;
+      border: none;
+      padding: 0.5rem;
+    }
+    
+    @media (max-width: 800px) { 
+        section { padding: 80px 15px; }
+        .intro { padding: 80px 15px 150px; } 
+        .intro h2 { font-size: 2.5rem; }
+        
+        .menu-toggle { display: block; }
+        .player-container { max-width: 100%; } 
+        
+        nav ul {
+            display: none;
+            flex-direction: column;
+            background: #000000dd; 
+            position: fixed;
+            top: 63px; 
+            right: 0;
+            width: 200px;
+            height: 100vh; 
+            padding: 2rem 1rem 0;
+            border-left: 3px solid var(--cor-destaque);
+            box-shadow: -5px 0 20px rgba(0, 255, 136, 0.7);
+            transform: translateX(100%); 
+        }
+        
+        nav ul.active {
+            transform: translateX(0); 
+        }
+
+        header { padding: 0.5rem 1rem; }
+        header h1 { font-size: 1.1rem; }
+        
+        .card-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-up" role="button" aria-label="Voltar ao topo">⬆</div>
+  
+  <header>
+    <h1>GEOPOLÍTICA // ESTRUTURA</h1>
+    <button class="menu-toggle" aria-label="Alternar menu de navegação" aria-expanded="false">☰</button>
+    <nav aria-label="Menu Principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#atores">Atores Chave (Editável)</a></li>
+        <li><a href="#conflitos">Conflitos</a></li>
+        <li><a href="#energia">Recursos</a></li>
+        <li><a href="#contato">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro" id="inicio">
+      <h2>ANÁLISE ESTRUTURAL DO PODER</h2>
+      <p>O equilíbrio de poder global é volátil. Analisamos as alianças e as tensões que definem o século XXI, com foco na soberania não-ocidental.</p>
+      
+      <div class="player-container">
+        <iframe 
+          width="100%" 
+          height="150" 
+          src="https://www.youtube.com/embed/epk_6oHhU6o" 
+          title="Rage Against The Machine - Killing In The Name (Live)" 
+          frameborder="0" 
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      </section>
+
+    <section id="atores">
+      <h2>Atores Geopolíticos Chave</h2>
+      <p>Clique nos títulos (H3) ou nos textos (P) dos cards abaixo para começar a editar o conteúdo diretamente.</p>
+      <div class="card-container">
+        
+        <div class="card">
+          <h3 contenteditable="true">Rússia</h3>
+          <p contenteditable="true">Potência que busca a consolidação de um sistema **multipolar**, defendendo sua esfera de influência pós-soviética e atuando como contrapeso à hegemonia ocidental.</p>
+        </div>
+        
+        <div class="card">
+          <h3 contenteditable="true">China</h3>
+          <p contenteditable="true">Líder do Sul Global, prioriza a **soberania nacional** e o desenvolvimento econômico através da Iniciativa Cinturão e Rota (BRI), redefinindo as cadeias de suprimento asiáticas.</p>
+        </div>
+        
+        <div class="card">
+          <h3 contenteditable="true">Irã</h3>
+          <p contenteditable="true">Potência regional que se estabeleceu através do **Eixo da Resistência** (rede de aliados xiitas e pró-iranianos), atuando de forma descentralizada contra a influência dos EUA e Israel, com ambições de mudar o equilíbrio de poder regional.</p>
+        </div>
+
+        <div class="card">
+          <h3 contenteditable="true">Iraque</h3>
+          <p contenteditable="true">País central entre o Golfo e o Irã, luta para consolidar a **soberania** após 2003. Sua política interna é um complexo balanço de poder entre as influências regionais do Irã (via maioria xiita) e de outras potências.</p>
+        </div>
+
+        <div class="card">
+          <h3 contenteditable="true">Síria</h3>
+          <p contenteditable="true">Cenário de prolongada guerra civil que se tornou palco de **disputas por procuração** entre potências globais e regionais. A soberania do regime de Assad depende do apoio de aliados como Rússia e Irã.</p>
+        </div>
+        
+        <div class="card">
+          <h3 contenteditable="true">Líbano</h3>
+          <p contenteditable="true">Nação marcada por uma estrutura **confessional frágil** e uma profunda crise econômica. Sua estabilidade é constantemente ameaçada pela instabilidade interna e pela atuação de atores regionais (como o Hezbollah).</p>
+        </div>
+        
+        <div class="card">
+          <h3 contenteditable="true">Nepal</h3>
+          <p contenteditable="true">Estado himalaico que historicamente navega entre a influência da Índia e da China, buscando preservar sua **autonomia nacional** em um cenário de rivalidade entre vizinhos.</p>
+        </div>
+        
+        <div class="card">
+          <h3 contenteditable="true">Mongólia</h3>
+          <p contenteditable="true">País-tampão entre a Rússia e a China, foca em manter o equilíbrio diplomático e em atrair investimentos, especialmente em recursos minerais, sem se aliar formalmente a nenhum dos gigantes.</p>
+        </div>
+        
+        <div class="card">
+          <h3 contenteditable="true">Indonésia</h3>
+          <p contenteditable="true">Líder da ASEAN e voz proeminente no Sul Global, a Indonésia defende o **multilateralismo** e a soberania econômica, criticando o protecionismo em fóruns internacionais.</p>
+        </div>
+        
+        <div class="card">
+          <h3 contenteditable="true">Turcomenistão</h3>
+          <p contenteditable="true">Baseado em sua política externa de **neutralidade permanente** (reconhecida pela ONU), foca no desenvolvimento de suas vastas reservas de gás natural, priorizando parcerias regionais como na Ásia Central.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="conflitos">
+      <h2>Conflitos e Tensão</h2>
+      <p>Guerras e tensões redefinem as fronteiras de influência, exigindo análise contínua:</p>
+      <ul>
+          <li><strong>Ucrânia:</strong> A invasão russa forçou a OTAN a se rearmar e reposicionou os EUA como o principal garantidor de segurança na Europa.</li>
+          <li><strong>Oriente Médio:</strong> Foco na disputa por hegemonia regional e o papel do Irã e da Arábia Saudita na contenção mútua.</li>
+          <li><strong>Rivalidade Sino-Americana:</strong> Disputas sobre Taiwan e tecnologia (semicondutores) representam o maior potencial de conflito de alta intensidade.</li>
+      </ul>
+    </section>
+
+    <section id="energia">
+      <h2>Recursos Estratégicos</h2>
+      <p>A segurança energética e o controle de minerais críticos são a nova fronteira da soberania:</p>
+      <ul>
+          <li><strong>Gás e Petróleo:</strong> A Europa busca desvincular-se rapidamente da dependência russa, reestruturando as cadeias de suprimento globais.</li>
+          <li><strong>Minerais Críticos:</strong> O lítio e as terras raras, essenciais para a transição verde, estão concentrados geograficamente, criando novos pontos de tensão (ex: China).</li>
+          <li><strong>Segurança Hídrica:</strong> A disputa por água potável afeta a estabilidade de grandes países africanos e asiáticos.</li>
+      </ul>
+    </section>
+
+    <section id="contato">
+      <h2>Sobre o Projeto</h2>
+      <p>Este arquivo demonstra uma estrutura de visualização de dados geopolíticos com estética moderna e de alto contraste.</p>
+      <p>
+        <a href="#inicio" aria-label="Voltar para o topo da página">Voltar ao Topo</a> |
+        <a href="https://github.com/seuusuario" target="_blank" rel="noopener noreferrer">Código Fonte</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Geopolítica. Editável localmente.</p>
+  </footer>
+
+  <script>
+    // JS: Menu Toggle, Scroll Up e Intersection Observer
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('nav ul');
+    const scrollUp = document.querySelector('.scroll-up');
+    const sections = document.querySelectorAll('section');
+
+    // 1. Toggle do Menu
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = navLinks.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', isExpanded);
+    });
+    
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
+    // 2. Botão de Scroll-Up
+    window.addEventListener('scroll', () => {
+        scrollUp.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    });
+
+    scrollUp.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // 3. Animação de Entrada
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1 
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const section = entry.target;
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+                observer.unobserve(section);
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach((section, index) => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = `opacity 0.5s ease-out ${index * 0.1}s, transform 0.5s ease-out ${index * 0.1}s`;
+        observer.observe(section);
+    });
+  </script>
+</body>
+</html>
